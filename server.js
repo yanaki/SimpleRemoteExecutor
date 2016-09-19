@@ -60,14 +60,14 @@ function spawnProcess(psName, params) {
 
     ps = spawn(psName, params.split(" "));    
     ps.stdout.on("data", function (data) {
-        taskDefinition.stdout += data
+        taskDefinition.stdout += data;
     });
     ps.stdout.on("end", function (data) {
         taskDefinition.status = "finished";
     });
 
     ps.stderr.on("data", function (data) {
-        taskDefinition.stderr += data
+        taskDefinition.stderr += data;
     });    
 
     ps.on("exit", function (code) {
